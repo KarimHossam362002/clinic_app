@@ -17,6 +17,14 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::get();
+        // $doctors = Doctor::with('major') select('doctors.*,'majors.title as major_title')
+        // ->join('majors','doctors.major_id','=','majors.id')
+        // ->where('majors.title','Prof.')
+        // ->get();
+        //filter doctors by major title
+        // Doctor::whereHas('major',function($q){
+        //     $q->where('title','Prof.')->get();
+        // });
         $doctors = Doctor::paginate(5);
         return view('admin.doctor.index', compact('doctors'));
     }

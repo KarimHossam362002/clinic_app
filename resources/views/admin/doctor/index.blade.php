@@ -8,6 +8,7 @@
             <th>id</th>
             <th>name</th>
             <th>city</th>
+            <th>Major Name</th>
             {{-- <th>email</th> --}}
             <th>image</th>
             <th>created_at</th>
@@ -19,6 +20,7 @@
                     <td>{{ $doctor->id }}</td>
                     <td>{{ $doctor->name }}</td>
                     <td>{{ $doctor->city }}</td>
+                    <td>{{ $doctor->major?->title }}</td>
                     {{-- <td>{{ $doctor->email }}</td> --}}
                     <td><img src="{{ url('assets/images/doctors/'.$doctor->image) }}" width="40"></td>
                     <td>{{ $doctor->created_at }}</td>

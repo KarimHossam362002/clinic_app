@@ -11,13 +11,14 @@ class Doctor extends Model
     protected $fillable =[
         'name','city','email','password','image','major_id'
     ];
+    protected $with = ['major'];
     function major(){
         return $this->belongsTo(Major::class);
     }
     function bookings(){
         return $this->hasMany(Booking::class);
     }
-    
+
     function rates(){
         return $this->hasMany(Rate::class);
     }
