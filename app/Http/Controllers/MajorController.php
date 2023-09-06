@@ -10,8 +10,8 @@ class MajorController extends Controller
 {
     // Display majors
    function index(){
-    $majors = Major::get();
-    $majors = Major::paginate(5);
+    // $majors = Major::get();
+    $majors = Major::select('id','title','created_at','updated_at')->paginate(5);
     return view('admin.major.index',compact('majors'));
     // dd(view('major.index',compact('majors'))->render());
    }
@@ -49,7 +49,7 @@ class MajorController extends Controller
     return view('admin.major.create');
    }
    function store(Request $request){
-    
+
         Major::create(['title'=>$request->majorTitle]);
        return redirect()->route('major.index');
     }

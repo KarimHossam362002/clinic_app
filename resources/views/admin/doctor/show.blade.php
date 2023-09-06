@@ -20,7 +20,9 @@
                 <td>{{ $doctor->city }}</td>
                 <td>{{ $doctor->email }}</td>
                 <td><img src="{{ url('assets/images/doctors/'.$doctor->image)  }}" width="40"></td>
-                <td>{{ $doctor->major->title }}</td>
+                <td>{{ $doctor->major?->title  }}</td>
+                {{-- <td>{{ $doctor->major_title }}</td> --}}
+
                 <td>{{ $doctor->created_at }}</td>
                 <td>
                     <form action="{{ route('doctors.destroy', $doctor->id) }}" method="post">

@@ -6,7 +6,7 @@
         <th>Rate</th>
         <th>Doctor Name</th>
         <th>Major Title</th>
-        <th>created_at</th>
+        {{-- <th>created_at</th> --}}
         {{-- <th>updated_at</th> --}}
         <th>actions</th>
     </thead>
@@ -17,7 +17,7 @@
                 <td>{{ $rate->sumOfRate }}</td>
                 <td>{{ $rate->doctor_name }}</td>
                 <td>{{ $rate->major_title }}</td>
-                <td>{{ $rate->created_at }}</td>
+                {{-- <td>{{ $rate->created_at }}</td> --}}
                 {{-- <td>{{ $rate->updated_at }}</td> --}}
                 <td class="d-flex">
                     <form action="{{ route('rates.destroy', $rate->id) }}" method="post">
