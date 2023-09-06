@@ -17,14 +17,10 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::get();
-        // $doctors = Doctor::paginate(7);
+        $doctors = Doctor::paginate(5);
         return view('admin.doctor.index', compact('doctors'));
     }
-    public function getData()
-    {
-        $doctors = Doctor::get();
-        return view('home.index');
-    }
+
 
     /**
      * Show the form for creating a new resource.

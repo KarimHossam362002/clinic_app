@@ -34,7 +34,7 @@
             @endforeach
         </tbody>
     </table>
-    {{-- {{ $contactMessage->links() }} --}}
+    {{ $contactMessages->links('vendor.pagination.bootstrap-4') }}
 @endsection
 
 @section('js')

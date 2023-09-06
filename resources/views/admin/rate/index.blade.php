@@ -32,6 +32,8 @@
         @endforeach
     </tbody>
 </table>
+{{-- {{ $rates->links('vendor.pagination.bootstrap-4') }} --}}
+
 @section('js')
     <script>
         document.querySelectorAll('.delete-rates').forEach(btn => {

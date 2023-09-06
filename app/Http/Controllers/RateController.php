@@ -22,6 +22,7 @@ class RateController extends Controller
         ->orderByDesc('sumOfRate')
         ->groupBy('doctor_name')
         ->get();
+        
         return view('admin.rate.index' ,compact('rates'));
     }
 

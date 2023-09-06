@@ -11,15 +11,11 @@ class MajorController extends Controller
     // Display majors
    function index(){
     $majors = Major::get();
-    // $majors = Major::paginate(5);
+    $majors = Major::paginate(5);
     return view('admin.major.index',compact('majors'));
     // dd(view('major.index',compact('majors'))->render());
    }
-   public function getData()
-    {
-        $majorsData = Major::get();
-        return view('home.index' ,compact('majorsData'));
-    }
+
 
    // Delete from majors
    function destroy($id){

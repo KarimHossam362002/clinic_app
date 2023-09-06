@@ -11,7 +11,7 @@
                     <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ route('home') }}">Home</a></li>
                     <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ route('doctor.index') }}">doctors</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">doctor name</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $doctorsData->name }}</li>
                 </ol>
             </nav>
             <div class="d-flex flex-column gap-3 details-card doctor-details">
@@ -19,7 +19,7 @@
                     <img src="{{asset('assets/images/major.jpg')}}" alt="doctor" class="img-fluid rounded-circle" height="150"
                         width="150">
                     <div class="details-info d-flex flex-column gap-3 ">
-                        <h4 class="card-title fw-bold">Doctor name</h4>
+                        <h4 class="card-title fw-bold">{{ $doctorsData->name }}</h4>
                         <div class="d-flex gap-3 align-bottom">
                             <ul class="rating">
                                 <li class="star"></li>

@@ -40,7 +40,7 @@
 
     </tbody>
   </table>
-  {{-- {{ $majors->links() }} --}}
+  {{ $majors->links('vendor.pagination.bootstrap-4') }}
 
 @endsection
 @section('js')
