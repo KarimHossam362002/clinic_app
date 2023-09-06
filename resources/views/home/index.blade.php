@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
             <h2 class="h1 fw-bold text-center my-4">majors</h2>
-
+        <div class="d-flex flex-wrap gap-4 justify-content-center">
             @foreach ($majorsData as $majorData)
             <div class="d-flex flex-wrap gap-4 justify-content-center">
                 <div class="card p-2" style="width: 18rem;">
-                    <img src="{{asset('assets/images/major.jpg')}}" class="card-img-top rounded-circle card-image-circle"
-                        alt="major">
+                    {{-- <img src="{{asset('assets/images/major.jpg')}}" class="card-img-top rounded-circle card-image-circle" --}}
+
                     <div class="card-body d-flex flex-column gap-1 justify-content-center">
                         <h4 class="card-title fw-bold text-center">{{ $majorData->title }}</h4>
                         <a href="{{route('doctor.index')}}" class="btn btn-outline-primary card-button">Browse Doctors</a>
@@ -16,23 +16,28 @@
                 </div>
             </div>
             @endforeach
+        </div>
+
             <h2 class="h1 fw-bold text-center my-4">doctors</h2>
             <section class="splide home__slider__doctors mb-5">
                 <div class="splide__track ">
                     <ul class="splide__list">
+                        @foreach ($doctorsData as $doctorData )
                         <li class="splide__slide">
                             <div class="card p-2" style="width: 18rem;">
-                                <img src="{{asset('assets/images/major.jpg')}}" class="card-img-top rounded-circle card-image-circle"
+                                <img src="{{asset('assets/images/doctors/'.$doctorData->image)}}" class="card-img-top rounded-circle card-image-circle"
                                     alt="major">
                                 <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                                    <h6 class="card-title fw-bold text-center">Major</h6>
-                                    <a href="./doctors/doctor.html" class="btn btn-outline-primary card-button">Book an
+                                    <h4 class="card-title fw-bold text-center">{{ $doctorData->name }}</h4>
+                                    <h6 class="card-title fw-bold text-center">{{ $doctorData->major->title }}</h6>
+                                    <a href="{{ route('docPage') }}" class="btn btn-outline-primary card-button">Book an
                                         appointment</a>
+                                        {{-- Here is a problem in passing doctor id to show his details --}}
                                 </div>
                             </div>
                         </li>
-                        <li class="splide__slide">
+                        @endforeach
+                        {{-- <li class="splide__slide">
                             <div class="card p-2" style="width: 18rem;">
                                 <img src="{{asset('assets/images/major.jpg')}}" class="card-img-top rounded-circle card-image-circle"
                                     alt="major">
@@ -115,7 +120,7 @@
                                         appointment</a>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </section>

@@ -13,6 +13,7 @@ class ContactUsController extends Controller
     public function index()
     {
         $contactMessages = ContactUs::get();
+        $contactMessages = ContactUs::paginate(5);
         return view('admin.contact_us.index' ,compact('contactMessages'));
     }
 

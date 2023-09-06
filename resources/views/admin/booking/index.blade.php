@@ -38,7 +38,7 @@
             @endforeach
         </tbody>
     </table>
-    {{-- {{ $doctors->links() }} --}}
+    {{ $bookings->links('vendor.pagination.bootstrap-4') }}
 @endsection
 
 @section('js')

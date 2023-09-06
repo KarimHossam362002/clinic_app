@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\MajorController;
-use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\DoctorBookingController;
+use App\Http\Controllers\DoctorDisplayController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MajorDisplayController;
 use Illuminate\Support\Facades\Route;
 Require __DIR__ . '/admin/admin.php';
 
@@ -17,44 +19,40 @@ Require __DIR__ . '/admin/admin.php';
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-})->name('home');
-Route::get('/',[MajorController::class,'getData'])->name('home');
-Route::get('/',[DoctorController::class,'getData'])->name('home');
+
 
 // USER INTERFACE ONLY
 // Home page
-// Route::get('/home', function () {
-//     return view('home.index');
-// })->name('home');
+Route::get('/home',[HomeController::class,'index'])->name('home');
+Route::get('/',[HomeController::class,'index'])->name('home');
 
 //login page
 Route::get('/login', function () {
     return view('login.index');
 })->name('login');
+
 //register page
 Route::get('/register', function () {
     return view('register.index');
 })->name('register');
+
 //majors page
-Route::get('/majors', function () {
-    return view('majors.index');
-})->name('majors');
+Route::get('/majors',[MajorDisplayController::class,'index'])->name('majors');
+
 //history page
 Route::get('/history', function () {
     return view('history.index');
 })->name('history');
+
 //contact page
 Route::get('/contact', function () {
     return view('contact.index');
 })->name('contact');
+
 //doctor index page
-Route::get('/doctor/index', function () {
-    return view('doctors.index');
-})->name('doctor.index');
+Route::get('/doc/index',[DoctorDisplayController::class,'index'])->name('doctor.index');
+
 //doctor page
-Route::get('/doctor', function () {
-    return view('doctors.doctor');
-})->name('doctor');
-Route::post('/doctor',[BookingController::class,'store'])->name('doctorBooking');
+Route::get('/doctor',[DoctorBookingController::class,'index'])->name('docPage');
+
+Route::post('/doctor/booking',[BookingController::class,'store'])->name('doctorBooking');

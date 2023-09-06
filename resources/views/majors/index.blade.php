@@ -11,7 +11,19 @@
             </ol>
         </nav>
         <div class="majors-grid">
+            @foreach ($majorsData as $majorData )
+
             <div class="card p-2" style="width: 18rem;">
+                <img src="{{asset('assets/images/major.jpg')}}" class="card-img-top rounded-circle card-image-circle"
+                    alt="major">
+                <div class="card-body d-flex flex-column gap-1 justify-content-center">
+                    <h4 class="card-title fw-bold text-center">{{ $majorData->title }}</h4>
+                    <a href="{{route('doctor.index', $majorData->doctor_id)}}" class="btn btn-outline-primary card-button">Browse Doctors</a>
+                </div>
+            </div>
+
+            @endforeach
+            {{-- <div class="card p-2" style="width: 18rem;">
                 <img src="{{asset('assets/images/major.jpg')}}" class="card-img-top rounded-circle card-image-circle"
                     alt="major">
                 <div class="card-body d-flex flex-column gap-1 justify-content-center">
@@ -98,15 +110,7 @@
                     <h4 class="card-title fw-bold text-center">Major title</h4>
                     <a href="{{route('doctor.index')}}" class="btn btn-outline-primary card-button">Browse Doctors</a>
                 </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{asset('assets/images/major.jpg')}}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Major title</h4>
-                    <a href="{{route('doctor.index')}}" class="btn btn-outline-primary card-button">Browse Doctors</a>
-                </div>
-            </div>
+            </div> --}}
         </div>
 
         <nav class="mt-5" aria-label="navigation">
