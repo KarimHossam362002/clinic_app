@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\Rate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -69,6 +70,9 @@ class RateController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Rate::where('id', $id)->delete();
+        return redirect()->route('rates.index');
+
+
     }
 }
