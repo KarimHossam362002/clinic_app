@@ -1,0 +1,22 @@
+@extends('adminlte::page')
+@section('content')
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+<form action=" {{route('major.store')}}" method="post">
+    @csrf
+    <div>
+        <label for="name" class="form-label">Name:</label>
+        <input type="text"  class="form-control w-50" name="majorTitle" id="name">
+        <br>
+        <button type="submit" class="btn btn-primary">Create</button>
+
+    </div>
+</form>
+@endsection
