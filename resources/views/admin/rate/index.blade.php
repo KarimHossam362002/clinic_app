@@ -19,15 +19,15 @@
                 <td>{{ $rate->major_title }}</td>
                 <td>{{ $rate->created_at }}</td>
                 {{-- <td>{{ $rate->updated_at }}</td> --}}
-                {{-- <td class="d-flex">
+                <td class="d-flex">
                     <form action="{{ route('rates.destroy', $rate->id) }}" method="post">
                         @method('DELETE')
                         @csrf
                         <button class="delete-rates btn btn-danger" type="submit">delete</button>
                     </form>
-                    <a href="{{ route('rates.show', $doctor->id) }}" class="btn btn-primary">show</a>
+                    {{-- <a href="{{ route('rates.show', $doctor->id) }}" class="btn btn-primary">show</a> --}}
 
-                </td> --}}
+                </td>
             </tr>
         @endforeach
     </tbody>
