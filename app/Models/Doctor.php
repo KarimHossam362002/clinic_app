@@ -17,6 +17,7 @@ class Doctor extends Model
     function bookings(){
         return $this->hasMany(Booking::class);
     }
+    
     function rates(){
         return $this->hasMany(Rate::class);
     }

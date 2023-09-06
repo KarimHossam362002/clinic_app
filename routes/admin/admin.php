@@ -5,6 +5,7 @@ use App\Http\Controllers\MajorController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\RateController;
 
 /*
 |--------------------------------------------------------------------------
