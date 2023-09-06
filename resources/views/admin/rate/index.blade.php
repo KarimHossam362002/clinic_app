@@ -24,6 +24,7 @@
                         <button class="delete-rates btn btn-danger" type="submit">delete</button>
                     </form>
                     <a href="{{ route('rates.show', $doctor->id) }}" class="btn btn-primary">show</a>
+                    
                 </td>
             </tr>
         @endforeach
