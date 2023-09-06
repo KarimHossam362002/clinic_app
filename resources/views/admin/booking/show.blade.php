@@ -21,8 +21,7 @@
                     <td>{{ $booking->email }}</td>
                     <td>{{ $booking->phone }}</td>
                     <td>{{ $booking->doctor->name }}</td>
-                    {{-- <td>{{ $booking->created_at }}</td>
-                    <td>{{ $booking->updated_at }}</td> --}}
+
 
                     <td class="d-flex">
                         <form action="{{ route('bookings.destroy', $booking->id) }}" method="post">

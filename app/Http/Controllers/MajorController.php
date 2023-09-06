@@ -32,7 +32,7 @@ class MajorController extends Controller
    }
 //    type hinting
    function update($id,Request $request){
-    $major = Major::find($id);
+    $data = Major::find($id);
     // dd($major);
     // $major->update(['title'=> $request->majorTitle]);
     // $major->title = $request->majorTitle;
@@ -49,11 +49,8 @@ class MajorController extends Controller
     return view('admin.major.create');
    }
    function store(Request $request){
-    $data = $request->all();
-    Validator::make($data,[
-        'title' =>['required', 'string' ,'min:2', 'max:20']
-    ])->validate();
-        $data = Major::create(['title'=>$request->majorTitle]);
+    
+        Major::create(['title'=>$request->majorTitle]);
        return redirect()->route('major.index');
     }
 

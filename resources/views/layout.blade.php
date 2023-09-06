@@ -42,6 +42,8 @@
                             href="{{route('majors')}}">majors</a>
                         <a type="button" class="btn btn-outline-light navigation--button"
                             href="{{route('doctor.index')}}">Doctors</a>
+                        <a type="button" class="btn btn-outline-light navigation--button"
+                            href="{{route('history')}}">History</a>
                         <a type="button" class="btn btn-outline-light navigation--button" href="{{route('login')}}">login</a>
                         <a type="button" class="btn btn-outline-light navigation--button" href="{{route('dashboard')}}">Dashboard</a>
                     </div>
