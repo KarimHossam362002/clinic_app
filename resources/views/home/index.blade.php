@@ -10,7 +10,7 @@
                         {{-- <img src="{{asset('assets/images/major.jpg')}}" class="card-img-top rounded-circle card-image-circle" --}}
 
                             <h4 class="card-title fw-bold text-center">{{ $majorData->title }}</h4>
-                            <a href="{{ route('doctor.index') }}" class="btn btn-outline-primary card-button">Browse
+                            <a href="{{ route('doctor.index',$majorData->id) }}" class="btn btn-outline-primary card-button">Browse
                                 Doctors</a>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                                 <div class="card-body d-flex flex-column gap-1 justify-content-center">
                                     <h4 class="card-title fw-bold text-center">{{ $doctorData->name }}</h4>
                                     <h6 class="card-title fw-bold text-center">{{ $doctorData->major->title }}</h6>
-                                    <a href="{{ route('docPage') }}" class="btn btn-outline-primary card-button">Book an
+                                    <a href="{{ route('docPage',$doctorData->id) }}" class="btn btn-outline-primary card-button">Book an
                                         appointment</a>
                                     {{-- Here is a problem in passing doctor id to show his details --}}
                                 </div>

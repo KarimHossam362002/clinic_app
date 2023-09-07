@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactUsRequest;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class ContactUsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ContactUsRequest $request)
     {
         ContactUs::create([
             'name' =>$request->name,
@@ -39,7 +40,7 @@ class ContactUsController extends Controller
             'message' =>$request->message,
 
         ]);
-        return back()->with('success', 'Message added successfully');
+        return back()->with('success', 'Message sent successfully :D');
 
     }
 
@@ -70,9 +71,9 @@ class ContactUsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(ContactUs $contact_u)
     {
-        ContactUs::where('id', $id)->delete();
-        return redirect()->route('contact_us.index');
+        $contact_u->delete();
+        return redirect()->route('contact_us.index')->with('success','Data deleted successfully');
     }
 }

@@ -10,6 +10,6 @@ class Rate extends Model
     use HasFactory;
     protected $fillable = ['rate','doctor_id'];
     function doctor(){
-        return $this->belongsToMany(Doctor::class);
+        return $this->belongsTo(Doctor::class);
     }
 }

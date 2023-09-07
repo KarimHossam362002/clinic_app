@@ -18,15 +18,15 @@
                     alt="major">
                 <div class="card-body d-flex flex-column gap-1 justify-content-center">
                     <h4 class="card-title fw-bold text-center">{{ $majorData->title }}</h4>
-                    <a href="{{route('doctor.index', $majorData->doctor_id)}}" class="btn btn-outline-primary card-button">Browse Doctors</a>
+                    <a href="{{route('doctor.index', $majorData->id)}}" class="btn btn-outline-primary card-button">Browse Doctors</a>
                 </div>
             </div>
 
             @endforeach
-          
+
         </div>
 
-        <nav class="mt-5" aria-label="navigation">
+        {{-- <nav class="mt-5" aria-label="navigation">
             <ul class="pagination justify-content-center">
                 <li class="page-item">
                     <a class="page-link page-prev" href="#" aria-label="Previous">
@@ -43,7 +43,7 @@
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav> --}}
     </div>
 </div>
 

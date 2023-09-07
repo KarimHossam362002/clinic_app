@@ -116,6 +116,6 @@ class DoctorController extends Controller
     public function destroy(string $id)
     {
         Doctor::where('id', $id)->delete();
-        return redirect()->route('doctors.index');
+        return redirect()->route('doctors.index')->with('success','Data deleted successfully');
     }
 }
