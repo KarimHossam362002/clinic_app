@@ -1,5 +1,10 @@
 @extends('adminlte::page')
 @section('content')
+@if (session()->has('success'))
+<div class="alert alert-success">
+    {{ session()->get('success') }}
+</div>
+@endif
 @if ($errors->any())
 <div class="alert alert-danger">
     <ul>

@@ -51,7 +51,7 @@ class MajorController extends Controller
    function store(Request $request){
 
         Major::create(['title'=>$request->majorTitle]);
-       return redirect()->route('major.index');
+       return back()->with('success','Data added successfully');
     }
 
 }
