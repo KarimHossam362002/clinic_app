@@ -22,7 +22,7 @@ class RateController extends Controller
         ->orderByDesc('sumOfRate')
         ->groupBy('doctor_name')
         ->get();
-        
+
         return view('admin.rate.index' ,compact('rates'));
     }
 
@@ -72,7 +72,7 @@ class RateController extends Controller
     public function destroy(string $id)
     {
         Rate::where('id', $id)->delete();
-        return redirect()->route('rates.index');
+        return redirect()->route('rates.index')->with('success','Data deleted successfully');
 
 
     }

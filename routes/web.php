@@ -50,9 +50,9 @@ Route::get('/contact', function () {
 })->name('contact');
 
 //doctor index page
-Route::get('/doc/index',[DoctorDisplayController::class,'index'])->name('doctor.index');
+Route::get('/doc/index/{major_id}',[DoctorDisplayController::class,'index'])->name('doctor.index');
 
 //doctor page
-Route::get('/doctor',[DoctorBookingController::class,'index'])->name('docPage');
+Route::get('/doctor/page/{id}',[DoctorBookingController::class,'index'])->name('docPage');
 
-Route::post('/doctor/booking',[BookingController::class,'store'])->name('doctorBooking');
+Route::post('/doctor/booking/{doctor_id}',[BookingController::class,'store'])->name('doctorBooking');

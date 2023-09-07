@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
             $table->smallInteger('rate');
-            $table->foreignId('doctor_id')->constrained();
+            $table->foreignId('doctor_id')->constrained('doctors')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

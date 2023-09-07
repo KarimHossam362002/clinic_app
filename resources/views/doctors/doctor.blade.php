@@ -9,7 +9,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="fw-bold my-4 h4">
                 <ol class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ route('doctor.index') }}">doctors</a>
+                    <li class="breadcrumb-item"><a class="text-decoration-none">doctors</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $doctorsData->name }}</li>
                 </ol>
@@ -39,36 +39,43 @@
                     {{ session()->get('success') }}
                  </div>
             @endif
-                <form class="form" action="{{ route('doctorBooking') }}" method="POST">
+                <form class="form" action="{{ route('doctorBooking',$doctorsData->id) }}" method="POST">
                     @csrf
+                    @error('name')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                    @error('phone')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                    @error('email')
+                        <div class="alert alert-danger">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     <div class="form-items">
+
                         <div class="mb-3">
-                            @error('name')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
+
                             <label class="form-label required-label" for="name">Name</label>
-                            <input type="text" class="form-control" name="name" id="name" required>
+                            <input type="text" class="form-control" name="name" id="name">
                         </div>
+
                         <div class="mb-3">
-                            @error('phone')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
+
                             <label class="form-label required-label" for="phone">Phone</label>
-                            <input type="tel" class="form-control" name="phone" id="phone" required>
+                            <input type="tel" class="form-control" name="phone" id="phone">
                         </div>
+
                         <div class="mb-3">
-                            @error('email')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
+
                             <label class="form-label required-label" for="email">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" required>
+                            <input type="email" class="form-control" name="email" id="email">
                         </div>
+
                     </div>
                     <button type="submit" class="btn btn-primary">Confirm Booking</button>
                 </form>

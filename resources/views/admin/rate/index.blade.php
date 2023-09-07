@@ -1,5 +1,8 @@
 @extends('adminlte::page')
 @section('content')
+@if (session()->has('success'))
+<div class="alert alert-success">{{ session()->get('success') }}</div>
+@endif
 <table class="table">
     <thead>
         <th>id</th>

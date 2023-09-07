@@ -8,10 +8,12 @@ use Illuminate\Http\Request;
 
 class DoctorDisplayController extends Controller
 {
-    function index(){
-        $doctorsData = Doctor::get();
-        $majorsData = Major::get();
-        $doctorsData = Doctor::paginate(4);
-        return view('doctors.index',compact('doctorsData' ,'majorsData'));
+    function index($id){
+        $doctorsData = Doctor::
+        where('major_id',$id)
+        ->paginate(4);
+        // $majorsData = Major::get();
+        // $doctorsData = Doctor::paginate(4);
+        return view('doctors.index',compact('doctorsData'));
     }
 }

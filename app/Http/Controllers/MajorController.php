@@ -22,7 +22,7 @@ class MajorController extends Controller
     // dd($id);
     $major=Major::find($id);
     $major->delete();
-    return redirect('/majordisplay');
+    return redirect('/majordisplay')->with('success','Data deleted successfully');
    }
    // Update majors
    function edit($id){

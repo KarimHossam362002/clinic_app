@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BookingRequest;
 use App\Models\Booking;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
@@ -29,19 +30,13 @@ class BookingController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BookingRequest $request , $doctor_id)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'phone' => 'required',
-        //     'email' => 'required'
-        // ]);
-
-        Doctor::create([
+        Booking::create([
             'name' => $request['name'],
             'phone' => $request['phone'],
             'email' => $request['email'],
-            'doctor_id' => $request->doctor_id
+            'doctor_id' => $doctor_id
         ]);
         return back()->with('success', 'Booking added successfully');
     }
@@ -79,6 +74,6 @@ class BookingController extends Controller
     {
 
         Booking::where('id', $id)->delete();
-        return redirect()->route('bookings.index');
+        return redirect()->route('bookings.index')->with('success','Data deleted successfully');
     }
 }

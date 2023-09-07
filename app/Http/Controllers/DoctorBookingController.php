@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 
 class DoctorBookingController extends Controller
 {
-    function index(){
-        $doctorsData = Doctor::get();
+    function index($id){
+        $doctorsData = Doctor::
+        where('id',$id)
+        ->first();
         return view('doctors.doctor',compact('doctorsData'));
+
     }
 }
