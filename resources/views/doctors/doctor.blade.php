@@ -16,7 +16,7 @@
             </nav>
             <div class="d-flex flex-column gap-3 details-card doctor-details">
                 <div class="details d-flex gap-2 align-items-center">
-                    <img src="{{asset('assets/images/major.jpg')}}" alt="doctor" class="img-fluid rounded-circle" height="150"
+                    <img src="{{asset('assets/images/doctors/'.$doctorsData->image)}}" alt="doctor" class="img-fluid rounded-circle" height="150"
                         width="150">
                     <div class="details-info d-flex flex-column gap-3 ">
                         <h4 class="card-title fw-bold">{{ $doctorsData->name }}</h4>

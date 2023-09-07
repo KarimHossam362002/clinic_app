@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class MajorDisplayController extends Controller
 {
     function index(){
-        $majorsData = Major::get();
+        $majorsData = Major::paginate(4);
         $doctorsData = Doctor::get();
         return view('majors.index',compact('majorsData','doctorsData'));
     }
