@@ -45,3 +45,5 @@ Route::resource('/doctors',DoctorController::class);
 Route::resource('/bookings',BookingController::class);
 Route::resource('/contact_us',ContactUsController::class);
 Route::resource('/rates',RateController::class);
+
+

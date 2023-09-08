@@ -5,6 +5,7 @@ use App\Http\Controllers\DoctorBookingController;
 use App\Http\Controllers\DoctorDisplayController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MajorDisplayController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 Require __DIR__ . '/admin/admin.php';
 
@@ -56,3 +57,9 @@ Route::get('/doc/index/{major_id}',[DoctorDisplayController::class,'index'])->na
 Route::get('/doctor/page/{id}',[DoctorBookingController::class,'index'])->name('docPage');
 
 Route::post('/doctor/booking/{doctor_id}',[BookingController::class,'store'])->name('doctorBooking');
+
+// user routes
+Route::get('/users',[UserController::class,'index']) ->name('user');
+Route::get('/users/register',[UserController::class,'create'])->name('users.create');
+Route::post('/users/register',[UserController::class,'store'])->name('users.store');
+Route::delete('/users/delete/{id}',[UserController::class ,'destroy']) ->name('users.delete');

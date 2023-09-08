@@ -22,9 +22,10 @@
                     <td>{{ $doctor->id }}</td>
                     <td>{{ $doctor->name }}</td>
                     <td>{{ $doctor->city }}</td>
+                    {{-- <td>{{ $doctor->password }}</td> --}}
                     <td>{{ $doctor->major?->title }}</td>
                     {{-- <td>{{ $doctor->email }}</td> --}}
-                    <td><img src="{{ url('assets/images/doctors/'.$doctor->image) }}" width="40"></td>
+                    <td><img src="{{ url('assets/images/doctors/'.$doctor->image) }}" width="80"></td>
                     <td>{{ $doctor->created_at }}</td>
                     <td class="d-flex">
                         <form action="{{ route('doctors.destroy', $doctor->id) }}" method="post">
@@ -48,7 +49,7 @@
                     <li class="page-item {{ $doctors->currentPage() == 1 ? 'disabled' : '' }}">
                         <a class="page-link" href="{{ $doctors->previousPageUrl() }}" aria-label="Previous">
                         <span class="fa fa-angle-double-left" aria-hidden="true"></span>
-                        <span class="sr-only"> {{ ('lang.Previous') }} </span>
+                        <span class="sr-only"> {{ ('Previous') }} </span>
                         </a>
                     </li>
                     @foreach ( $doctors->getUrlRange(1, $doctors->lastPage()) as $pageLink)
@@ -67,7 +68,7 @@
                     <li class="page-item {{  $doctors->currentPage() == $doctors->lastPage() ? 'disabled' : '' }}">
                         <a class="page-link" href="{{ $doctors->nextPageUrl() }}" aria-label="Next">
                         <span class="fa fa-angle-double-right" aria-hidden="true"></span>
-                        <span class="sr-only"> {{ ('lang.Next') }} </span>
+                        <span class="sr-only"> {{ ('Next') }} </span>
                     </a>
                     </li>
                     </ul>
