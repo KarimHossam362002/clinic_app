@@ -19,7 +19,7 @@
                 <td>{{ $doctor->name }}</td>
                 <td>{{ $doctor->city }}</td>
                 <td>{{ $doctor->email }}</td>
-                <td><img src="{{ url('assets/images/doctors/'.$doctor->image)  }}" width="40"></td>
+                <td><img src="{{ url('assets/images/doctors/'.$doctor->image)  }}" width="100"></td>
                 <td>{{ $doctor->major?->title  }}</td>
                 {{-- <td>{{ $doctor->major_title }}</td> --}}
 

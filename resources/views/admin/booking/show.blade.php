@@ -29,8 +29,8 @@
                             @csrf
                             <button class="delete-booking btn btn-danger" type="submit">delete</button>
                         </form>
-                        <a href="{{ route('bookings.edit', $booking->id) }}" class="btn btn-warning">update</a>
-                        {{-- <a href="{{ route('bookings.show', $booking->id) }}" class="btn btn-primary">show</a> --}}
+
+                     
                     </td>
                 </tr>
 

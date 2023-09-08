@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\ContactUs;
-use App\Models\Major;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,6 +29,9 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call([
             RateSeeder::class
+        ]);
+        $this->call([
+            UserSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

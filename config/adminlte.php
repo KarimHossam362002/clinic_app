@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -333,6 +333,11 @@ return [
             'text' => 'doctors',
             'url'  => 'doctors',
             'icon' => 'fas fa-user-md',
+        ],
+        [
+            'text' => 'users',
+            'url'  => 'users',
+            'icon' => 'fas fa-users',
         ],
         [
             'text' => 'bookings',

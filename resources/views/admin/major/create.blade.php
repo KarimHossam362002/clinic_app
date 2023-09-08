@@ -17,8 +17,8 @@
 <form action=" {{route('major.store')}}" method="post">
     @csrf
     <div>
-        <label for="name" class="form-label">Name:</label>
-        <input type="text"  class="form-control w-50" name="majorTitle" id="name">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text"  class="form-control w-50" name="majorTitle" id="title">
         <br>
         <button type="submit" class="btn btn-primary">Create</button>
 
