@@ -1,7 +1,8 @@
 @extends('adminlte::page')
 @section('content')
 
-    <a href="{{ route('bookings.create') }}" class="btn btn-primary">create</a>
+    {{-- <a href="{{ route('bookings.create') }}" class="btn btn-primary"><i class="fas fa-plus-square"></i>
+    </a> --}}
 
     <table class="table">
         <thead>
@@ -27,10 +28,11 @@
                         <form action="{{ route('bookings.destroy', $booking->id) }}" method="post">
                             @method('DELETE')
                             @csrf
-                            <button class="delete-booking btn btn-danger" type="submit">delete</button>
+                            <button class="delete-booking btn btn-danger" type="submit"><i class="fas fa-minus-circle"></i>
+                            </button>
                         </form>
 
-                     
+
                     </td>
                 </tr>
 

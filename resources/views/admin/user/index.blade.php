@@ -36,7 +36,8 @@
                 <form action="{{route('users.delete',$user->id)}}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button class="delete-user btn btn-danger ">Delete</button>
+                    <button class="delete-user btn btn-danger "><i class="fas fa-minus-circle"></i>
+                    </button>
                 </form>
             </td>
 

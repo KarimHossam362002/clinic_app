@@ -29,7 +29,8 @@
                         <form action="{{ route('contact_us.destroy', $contactMessage->id) }}" method="post">
                             @method('DELETE')
                             @csrf
-                            <button class="delete-contact_us btn btn-danger" type="submit">delete</button>
+                            <button class="delete-contact_us btn btn-danger" type="submit"><i class="fas fa-minus-circle"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
