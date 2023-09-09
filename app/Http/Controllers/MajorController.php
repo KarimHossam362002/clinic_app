@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MajorRequest;
 use App\Models\Major;
-use Illuminate\Support\Facades\Validator;
+
 
 class MajorController extends Controller
 {
@@ -38,11 +38,9 @@ class MajorController extends Controller
     // $major->title = $request->majorTitle;
     // $major->save();
     $data = $request->all();
-    Validator::make($data,[
-        'majorTitle'=>['required','string','min:2','max:20']
-    ])->validate();
+
     Major::where('id',$id)->update(['title'=>$data['majorTitle']]);
-    return redirect()->route('major.index');
+    return back()->with('success','Data updated successfully');
         // dd($request->all());
    }
    function create(){

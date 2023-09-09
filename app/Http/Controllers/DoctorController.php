@@ -44,11 +44,7 @@ class DoctorController extends Controller
      */
     public function store(DoctorRequest $request)
     {
-        $request->validate([
-            'image' => 'required',
-            'email' => 'unique:doctors,email',
-            'password' => 'required'
-        ]);
+        
         $ext = $request->image->extension();
         $newName = time() . rand(0, mt_getrandmax()) . '.' . $ext;
         $request->image->move(public_path('assets/images/doctors'), $newName);
