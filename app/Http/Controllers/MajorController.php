@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MajorRequest;
 use App\Models\Major;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class MajorController extends Controller
@@ -31,7 +31,7 @@ class MajorController extends Controller
     return view('admin.major.update',['major' =>$major]);
    }
 //    type hinting
-   function update($id,Request $request){
+   function update($id,MajorRequest $request){
     $data = Major::find($id);
     // dd($major);
     // $major->update(['title'=> $request->majorTitle]);
@@ -48,7 +48,7 @@ class MajorController extends Controller
    function create(){
     return view('admin.major.create');
    }
-   function store(Request $request){
+   function store(MajorRequest $request){
 
         Major::create(['title'=>$request->majorTitle]);
        return back()->with('success','Data added successfully');
