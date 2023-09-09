@@ -5,15 +5,11 @@
     {{ session()->get('success') }}
 </div>
 @endif
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+@error('majorTitle')
+ <div class="alert alert-danger">
+         {{ $message }}
+ </div>
+@enderror
 <form action=" {{route('major.store')}}" method="post">
     @csrf
     <div>
@@ -24,4 +20,5 @@
 
     </div>
 </form>
+
 @endsection

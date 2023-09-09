@@ -26,18 +26,18 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 
 //Majors routes
-Route::get('/majordisplay',[MajorController::class ,'index']) ->name('major.index');
+Route::get('/majordisplay',[MajorController::class ,'index'])->name('major.index');
 // Delete
-Route::delete('/major/delete/{id}',[MajorController::class ,'destroy']) ->name('major.delete');
+Route::delete('/major/delete/{id}',[MajorController::class ,'destroy'])->name('major.delete');
 //Update
-Route::get('/majoredit/{id}',[MajorController::class ,'edit']) ->name('major.edit');
+Route::get('/majoredit/{id}',[MajorController::class ,'edit'])->name('major.edit');
 
-Route::put('/majors/update/{id}',[MajorController::class ,'update']) ->name('major.update');
+Route::put('/majors/update/{id}',[MajorController::class ,'update'])->name('major.update');
 // create
 
-Route::get('/majorcreate',[MajorController::class ,'create']) ->name('major.create');
+Route::get('/majorcreate',[MajorController::class ,'create'])->name('major.create');
 
-Route::post('/majordisplay',[MajorController::class ,'store']) ->name('major.store');
+Route::post('/majordisplay',[MajorController::class ,'store'])->name('major.store');
 
 
 //doctor routes
