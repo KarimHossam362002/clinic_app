@@ -7,7 +7,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MajorDisplayController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-Require __DIR__ . '/admin/admin.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +62,4 @@ Route::get('/users',[UserController::class,'index']) ->name('user');
 Route::get('/users/register',[UserController::class,'create'])->name('users.create');
 Route::post('/users/register',[UserController::class,'store'])->name('users.store');
 Route::delete('/users/delete/{id}',[UserController::class ,'destroy']) ->name('users.delete');
+require_once __DIR__ . '/admin/admin.php';

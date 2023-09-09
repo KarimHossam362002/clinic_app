@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MajorRequest;
 use App\Models\Major;
-
+use Illuminate\Http\Request;
 
 class MajorController extends Controller
 {
@@ -39,16 +39,18 @@ class MajorController extends Controller
     // $major->save();
     $data = $request->all();
 
-    Major::where('id',$id)->update(['title'=>$data['majorTitle']]);
+    Major::where('id',$id)->update(['title'=>$data['title']]);
     return back()->with('success','Data updated successfully');
         // dd($request->all());
    }
+
    function create(){
     return view('admin.major.create');
    }
-   function store(MajorRequest $request){
 
-        Major::create(['title'=>$request->majorTitle]);
+   function store(MajorRequest $request){
+    // dd($request->validated());
+        Major::create(['title'=>$request->title]);
        return back()->with('success','Data added successfully');
     }
 
