@@ -14,7 +14,7 @@
         {{ session()->get('success') }}
     </div>
 @endif
-@error('majorTitle')
+@error('title')
  <div class="alert alert-danger">
          {{ $message }}
  </div>
@@ -22,7 +22,7 @@
 <form action=" {{route('major.update',$major->id)}}" method="post">
     @csrf
     @method('put')
-    <input type="text" name="majorTitle" value="{{$major->title}}">
+    <input type="text" name="title" value="{{$major->title}}">
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
 @endsection
