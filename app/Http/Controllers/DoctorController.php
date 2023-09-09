@@ -44,10 +44,11 @@ class DoctorController extends Controller
      */
     public function store(DoctorRequest $request)
     {
-        
+       $request->validate(['image'=>'sometimes']);
         $ext = $request->image->extension();
         $newName = time() . rand(0, mt_getrandmax()) . '.' . $ext;
         $request->image->move(public_path('assets/images/doctors'), $newName);
+
         Doctor::create([
             'name' => $request['name'],
             'city' => $request['city'],
