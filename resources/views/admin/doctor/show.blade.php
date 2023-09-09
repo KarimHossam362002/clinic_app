@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 @section('content')
-    <a href="{{ route('doctors.create') }}" class="btn btn-primary">create</a>
+    <a href="{{ route('doctors.create') }}" class="btn btn-primary"><i class="fas fa-plus-square"></i>
+    </a>
     <table class="table">
         <thead>
             <th>id</th>
@@ -28,11 +29,13 @@
                     <form action="{{ route('doctors.destroy', $doctor->id) }}" method="post">
                         @method('DELETE')
                         @csrf
-                        <button class="delete-major btn btn-danger" type="submit">delete</button>
+                        <button class="delete-major btn btn-danger" type="submit"><i class="fas fa-minus-circle"></i>
+                        </button>
                     </form>
                 </td>
                 <td>
-                    <a href="{{ route('doctors.edit', $doctor->id) }}" class="btn btn-warning">update</a>
+                    <a href="{{ route('doctors.edit', $doctor->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i>
+                    </a>
 
                 </td>
             </tr>

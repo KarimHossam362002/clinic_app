@@ -3,7 +3,7 @@
 @if (session()->has('success'))
 <div class="alert alert-success">{{ session()->get('success') }}</div>
 @endif
-    <a href="{{ route('major.create') }}" class="btn btn-primary">Create</a>
+    <a href="{{ route('major.create') }}" class="btn btn-primary"><i class="fas fa-plus-square"></i></a>
 
 
 <table class="table">
@@ -26,13 +26,14 @@
             <td>{{$major->updated_at}}</td>
             <td>
 
-                <a href="{{ route('major.edit', $major->id)}}" class="btn btn-warning">edit</a>
+                <a href="{{ route('major.edit', $major->id)}}" class="btn btn-warning"><i class="fas fa-edit"></i>
+                </a>
             </td>
             <td>
                 <form action="{{route('major.delete',$major->id)}}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button class="delete-major btn btn-danger ">Delete</button>
+                    <button class="delete-major btn btn-danger "><i class="fas fa-minus-circle"></i></button>
                 </form>
             </td>
 
