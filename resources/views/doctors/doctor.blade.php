@@ -16,7 +16,19 @@
             </nav>
             <div class="d-flex flex-column gap-3 details-card doctor-details">
                 <div class="details d-flex gap-2 align-items-center">
-                    <img src="{{asset('assets/images/doctors/'.$doctorsData->image)}}" alt="doctor" class="img-fluid rounded-circle" height="150"
+                    <img src="
+                    {{-- file exist --}}
+                    @php
+                    $imagePath = asset('assets/images/doctors/' . $doctorsData->image);
+                    @endphp
+                     {{-- @dd(!file_exists(public_path($imagePath))) --}}
+                        {{-- @dd(empty($doctor->image)) --}}
+                    @if (!file_exists(public_path($imagePath)) && !empty($doctorsData->image))
+                    {{ $imagePath }}
+                    @else
+                    {{ asset('assets/images/defaultDoctor.jpg') }}
+                    @endif
+                    " alt="doctor" class="img-fluid rounded-circle" height="150"
                         width="150">
                     <div class="details-info d-flex flex-column gap-3 ">
                         <h4 class="card-title fw-bold">{{ $doctorsData->name }}</h4>

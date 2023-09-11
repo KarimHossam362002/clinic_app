@@ -20,7 +20,18 @@
                 <td>{{ $doctor->name }}</td>
                 <td>{{ $doctor->city }}</td>
                 <td>{{ $doctor->email }}</td>
-                <td><img src="{{ url('assets/images/doctors/'.$doctor->image)  }}" width="100"></td>
+                <td><img src="
+                    @php
+                    $imagePath = asset('assets/images/doctors/' . $doctor->image);
+                    @endphp
+
+                    @if (!file_exists(public_path($imagePath)) && !empty($doctor->image))
+                        {{ $imagePath . $doctor->image }}
+                    @else
+                       {{ asset('assets/images/defaultDoctor.jpg') }}
+                    @endif
+
+                    " width="100"></td>
                 <td>{{ $doctor->major?->title  }}</td>
                 {{-- <td>{{ $doctor->major_title }}</td> --}}
 

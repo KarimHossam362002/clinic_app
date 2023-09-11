@@ -26,7 +26,20 @@
                     {{-- <td>{{ $doctor->password }}</td> --}}
                     <td>{{ $doctor->major?->title }}</td>
                     {{-- <td>{{ $doctor->email }}</td> --}}
-                    <td><img src="{{ url('assets/images/doctors/'.$doctor->image) }}" width="80"></td>
+                    <td><img src="
+                        {{-- file exist --}}
+                        @php
+                        $imagePath = asset('assets/images/doctors/' . $doctor->image);
+                        @endphp
+                         {{-- @dd(!file_exists(public_path($imagePath))) --}}
+                            {{-- @dd(empty($doctor->image)) --}}
+                        @if (!file_exists(public_path($imagePath)) && !empty($doctor->image))
+                        {{ $imagePath }}
+                        @else
+                        {{ asset('assets/images/defaultDoctor.jpg') }}
+                        @endif
+
+                        " width="80"></td>
                     <td>{{ $doctor->created_at }}</td>
                     <td class="d-flex">
                         <form action="{{ route('doctors.destroy', $doctor->id) }}" method="post">

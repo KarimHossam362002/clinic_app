@@ -56,7 +56,19 @@
 
 
                 <div class="card p-2" style="width: 18rem;">
-                    <img src="{{asset('assets/images/doctors/'.$doctorData->image)}}" class="card-img-top rounded-circle card-image-circle"
+                    <img src="
+                    {{-- file exist --}}
+                    @php
+                    $imagePath = asset('assets/images/doctors/' . $doctorData->image);
+                    @endphp
+                     {{-- @dd(!file_exists(public_path($imagePath))) --}}
+                        {{-- @dd(empty($doctorData->image)) --}}
+                    @if (!file_exists(public_path($imagePath)) && !empty($doctorData->image))
+                    {{ $imagePath }}
+                    @else
+                    {{ asset('assets/images/defaultDoctor.jpg') }}
+                    @endif
+                    " class="card-img-top rounded-circle card-image-circle"
                         alt="major">
                     <div class="card-body d-flex flex-column gap-1 justify-content-center">
                         <h4 class="card-title fw-bold text-center">{{ $doctorData->name }}</h4>
