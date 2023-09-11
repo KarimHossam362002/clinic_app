@@ -6,6 +6,7 @@ use App\Http\Controllers\DoctorDisplayController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MajorDisplayController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,3 +64,7 @@ Route::get('/users/register',[UserController::class,'create'])->name('users.crea
 Route::post('/users/register',[UserController::class,'store'])->name('users.store');
 Route::delete('/users/delete/{id}',[UserController::class ,'destroy']) ->name('users.delete');
 require_once __DIR__ . '/admin/admin.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
